@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablas</title>
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="assets/logo.png">
     <style>
         body {
-            background-color: #fff1a3;
+            background-color: #E0E1DD;
         }
     </style>
 </head>
 <body>
-    <a href="index.html">Principal</a> <br/>
-    <a href="listas.html">Siguiente➡️</a>
-    <h1><center>Tablas</center></h1>
+    <a href="index.html">Principal</a><br/>
+    <a href="listas.html">Siguiente➡️</a><br/>
+    <h1 align="center">Tablas</h1>
     <table border="1" align="center">
         <tr>
-            <td bgcolor= #f8c471>Silvestre</td><td bgcolor=#cd6155>Evelyn</td><td bgcolor=#b3b6b7>Geovanny</td>
+            <td bgcolor= #fb2d0c>Silvestre</td>
+            <td bgcolor=#af0627>Evelyn</td>
+            <td bgcolor=#9097a2>Geovanny</td>
         </tr>
         <tr>
-            <td bgcolor=#dc7633>Olvera</td><td bgcolor=#c0392b>Garcia</td><td bgcolor=#909497>Torres</td>
+            <td bgcolor=#ff9f6c>Olvera</td>
+            <td bgcolor=#c14156>Garcia</td>
+            <td bgcolor=#d9e1ed>Torres</td>
         </tr>
         <tr>
             <td>dato1</td><td>dato2</td><td>dato3</td>
@@ -45,6 +49,104 @@
         </tr>
     </table>
     <hr \>
-    <p>Holaa</p>
+
+    <h1 align="center">Encabezados de tablas</h1>
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <th>Edad</th>
+            </tr>
+        </thead>
+    </table>
+    <hr \>
+
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Silvestre</td>
+                <td>20</td>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>Evelyn</td>
+                    <td>20</td>
+                </tr>
+        </tbody>
+    </table>
+    <hr \>
+
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Silvestre</td>
+                <td>20</td>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>Evelyn</td>
+                    <td>20</td>
+                </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>40</td>
+            </tr>
+        </tfoot>
+    </table>
 </body>
+<hr \>
+
+<h1 align="center">Combinación de celdas en tablas</h1>
+<table border="1" align="center">
+    <thead>
+        <tr>
+            <th colspan="2">Información</th>
+        </tr>
+        <tr>
+            <th>Docente</th>
+            <th>Materias</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">Jaime</td>
+            <td>Programacion Web</td>
+        </tr>
+        <tr>
+            <td>Fundamentos de Programación</td>
+        </tr>
+    </tbody>
+</table>
+<hr \>
+
+<table border="1" align="center">
+        <tr>
+            <td bgcolor="#a8ed75" colspan="3">1</td>
+            <td bgcolor="#e46ae7" rowspan="3">4</td>
+        </tr>
+        <tr>
+            <td bgcolor="#77c4f2" colspan="2">2</td>
+            <td bgcolor="#ffff97">3</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffc7ff">5</td>
+            <td bgcolor="#c14156">6</td>
+            <td bgcolor="#fe8354">7</td>
+        </tr>
+</table>
+<hr \>
 </html>
