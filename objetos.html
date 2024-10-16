@@ -15,7 +15,7 @@
     <a href="index.html">Principal</a><br/>
     <a href="horario.html">Siguiente➡️</a><br/>
     <h1 align="center">Imagenes</h1>
-    <table>
+    <table align="center" border="1">
         <thead>
             <tr>
                 <th align="center">Tipo</th>
@@ -48,7 +48,47 @@
                     height="200"/>
                 </td>
             </tr>
+            <tr>
+                <td>BMP</td>
+                <td>
+                    <img src="assets/discoD.bmp" alt="Disquete"
+                    height="200">
+                </td>
+            </tr>
         </tbody>
     </table>
+
+    <h1 align="center">Audio y Video</h1>
+    <table border="1" align="center">
+        <thread>
+            <tr>
+                <th>Tipo</th>
+                <th>Ejemplo</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr>
+                <td>Mp3</td>
+                <td><audio controls src="Assets/t-rex-roar.mp3"></audio></td>
+            </tr>
+        </tbody>
+        <tr>
+            <td>Video en srcset</td>
+            <td>
+                <video controls  width="300">
+                <source src="Assets/flower.mp4" type="Video/mp4">
+                <source src="Assets/flower.webm" type="Video/webm">
+                Descargar el video en <a href="Assets/flower.mp4">MP4</a> o
+                <a href="Assets/flower.webm">WEBM</a>
+        </tr>
+    </table>
+    <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" fill="#000000" viewBox="0 0 256 256">
+        <path d="M80,120a8,8,0,0,1,8-8h16V96a8,8,0,0,1,16,0v16h16a8,8,0,0,1,0,16H120v16a8,8,0,0,1-16,0V128H8
+        8A8,8,0,0,1,80,120Zm176,0v64a16,16,0,0,1-16,16H223a32,32,0,0,1-62,0H111a32,32,0,0,1-62,0H32a16,16,0,
+        0,1-16-16V72A16,16,0,0,1,32,56H184a8,8,0,0,1,8,8v8h34.58a15.93,15.93,0,0,1,14.86,10.06l14,35A7.92,7.92
+        ,0,0,1,256,120ZM192,88v24h44.18l-9.6-24ZM32,184H49a32,32,0,0,1,62,0h50a32.11,32.11,0,0,1,15-19.69V72H3
+        2Zm64,8a16,16,0,1,0-16,16A16,16,0,0,0,96,192Zm112,0a16,16,0,1,0-16,16A16,16,0,0,0,208,192Zm32-8V128H19
+        2v32a32.06,32.06,0,0,1,31,24Z"></path>
+    </svg>
 </body>
 </html>
