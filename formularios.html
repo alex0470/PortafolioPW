@@ -1,60 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formularios</title>
-  </head>
-  <body>
-    <a href="index.html">Principal</a><br/>
-    
-    <h1>Formularios</h1>
-    <h2>Formulario con GET</h2>
-    <form action="procesa.php" method="GET">
-      <input
-        type="text"
-        name="nombre"
-        id="nombre"
-        placeholder="Nombre(s)"
-        required
-      />
-      <input
-        type="text"
-        name="apellido_paterno"
-        id="apellido_paterno"
-        placeholder="Apellido paterno"
-        required
-      />
-      <input
-        type="text"
-        name="apellido_materno"
-        id="apellido_materno"
-        placeholder="Apellido materno"
-        required
-      />
-    </form>
+    <link rel="icon" type= "gif/x icon" href="assets/icono.gif">
 
+</head>
+<body>
+    <a href="index.html">Principal</a><br>
+
+    <h1>Formularios</h1>
     <h2>Formulario con POST</h2>
-    <input
-      type="text"
-      name="nombre"
-      id="nombre"
-      placeholder="Nombre(s)"
-      required
-    />
-    <input
-      type="text"
-      name="apellido_paterno"
-      id="apellido_paterno"
-      placeholder="Apellido paterno"
-      required
-    />
-    <input
-      type="text"
-      name="apellido_materno"
-      id="apellido_materno"
-      placeholder="Apellido materno"
-      required
-    />
-  </body>
+    <form action="" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required/><p></p>
+        <input type="text" name="apellido_p" placeholder="Apellido Paterno" required/><p></p> 
+        <input type="text" name="apellido_m" placeholder="Apellido Materno" required/>
+    </form>
+    <hr />
+    <h2>Formulario con GET </h2>
+    <form action="Formularios.html" method="GET" >
+        <fieldset >
+            <legend>Datos Personales</legend>
+      
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre"required/><p></p>
+        <label for="apeido_pat">Apellido Paterno:</label>
+        <input type="text" id="apeido_pat" name="apellido_p" placeholder="Apellido Paterno" required/><p></p>
+        <label for="apeido_mat">Apellido Materno:</label>
+        <input type="text" id="apeido_mat" name="apellido_m" placeholder="Apellido Materno" required/><p></p>
+        <label for="clave">Contraseña:</label>
+        <input type="password" id="contra" name="contra"/><p></p>
+        <label for="archivo">Archivo:</label>
+        <input type="file" id="archivo" name="archivo"/><p></p>
+        <label for="acepto">Aceptas venderme tu alma:</label>
+        <input type="checkbox" id="acepto" name="acepto"/><p></p>
+        <br/>
+            <div>
+            <label for="masculino">
+            <input type="radio" id="masculino" name="genero" value="M" checked/>
+            Masculino</label>
+            </div>
+            <div>
+            <label for="femenino">
+            <input type="radio" name="genero" id="femenino" value="F"/>
+            Femenino</label>
+            </div>
+            <div>
+            <label for="otro">
+            <input type="radio" name="genero" id="otro" value="F"/>
+            Otro</label>
+            </div>
+        <br/>
+        <input type="hidden" name="folio" value="UFEJ838"  />
+
+        <label for="correo">Correo Electronico:</label>
+        <input type="email" id="correo" name="correo"/>
+    </fieldset><br>
+    
+        <label for="enlace">Enlace</label>
+        <input type="url" id="enlace" name="Enlace"/><p></p>
+        <label for="col">Color:</label>
+        <input type="color" id="col" name="colores" /><p></p>
+        <input type="date" name="fechas"/><p></p>
+        <input type="number" name="numero" min="0" max="100" placeholder="0"/><p></p>
+        <input type="range" name="rango" min="10" max="100"/><p></p>
+        <input type="month" name="mes"/><p></p>
+        <input type="week" name="semana"/><p></p>
+        <input type="search" name="q" placeholder="Buscar"/><p></p>
+        <input type="tel" name="telefono" placeholder="Numero de telefono"/><p></p>
+        <input type="datetime-local" name="hora"/><p></p>
+        <textarea name="comentario" rows="2" cols="20">Escribe tu comentario...</textarea><p></p>
+        <label for="paises">Paises</label>
+        <select name="pais" id="paises" aria-readonly="true">
+            <optgroup label="Paises de Norteamerica">
+                <option value="" selected>Elige un pais</option>
+                <option value="MX">Mexico </option>
+                <option value="US" >Estados Unidos</option>
+                <option value="CA">Canada</option>
+            </optgroup>
+            <optgroup label="Paises de Europa">
+                <option value="FC">Francia</option>
+                <option value="IR">Irlanda</option>
+                <option value="RS">Rusia</option>
+            </optgroup>
+            <optgroup label="Paises de Asia">
+              <option value="JP">Japon</option>
+              <option value="CH">China</option>
+              <option value="IN">India</option>
+          </optgroup>
+        </select>
+        <br>
+        <div>
+            <center>
+        <button type="submit"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+          </svg>  Enviar</button>
+        <button type="reset">Limpiar</button>
+        <button type="button">Cancelar</button>
+        </center>
+        </div>
+        <input list ="colores" name="color" />
+        <datalist id="colores">
+            <option value="Rojo" />
+            <option value="Azul" />
+            <option value="Verde" />
+            <option value="Amarillo" />
+            <option value="Cafe" />
+            <option value="Rosa" />
+        </datalist> <br>
+        <output name="resultado" for="numero">0</output> <br/>
+        <progress value="80" max="100">75%</progress>
+        <meter value="0.5" min="0" max="1">50%</meter>
+        <details>
+        <summary>Detalles</summary>
+        <p>Contenido de los detalles...</p>
+        </details>
+    </form>
+    <hr />
+</body>
 </html>
