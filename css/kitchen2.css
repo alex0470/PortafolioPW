@@ -1,0 +1,219 @@
+/* Variables de la paleta de colores */
+:root {
+    --color-white: #ffffff;
+    --color-dark-purple: #412234;
+    --color-medium-purple: #6D466B;
+    --color-light-purple: #B49FCC;
+    --color-pale-pink: #EAD7D7;
+    --color-bright-pink: #FF69B4;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-dark-purple);
+    background-color: var(--color-pale-pink);
+    margin: 0;
+    line-height: 1.6;
+    padding: 1em;
+}
+
+header {
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    padding: 1em;
+    text-align: center;
+    border-bottom: 3px solid var(--color-medium-purple);
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: var(--color-bright-pink);
+    margin: 0;
+}
+
+header p {
+    color: var(--color-light-purple);
+    font-size: 1rem;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: var(--color-dark-purple);
+    text-decoration: underline;
+    border-bottom: 2px solid var(--color-medium-purple);
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+h3, h4, h5, h6 {
+    color: var(--color-medium-purple);
+}
+
+h3 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.75rem;
+    color: var(--color-bright-pink);
+    border-bottom: 1px solid var(--color-light-purple);
+    padding-bottom: 0.3em;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-medium-purple);
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: var(--color-dark-purple);
+}
+
+h6 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--color-light-purple);
+    font-style: italic;
+}
+
+p {
+    color: var(--color-dark-purple);
+    margin-bottom: 1em;
+}
+
+p.lead {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: var(--color-medium-purple);
+}
+
+p code, pre, kbd, samp, var {
+    background-color: var(--color-light-purple);
+    color: var(--color-dark-purple);
+    padding: 0.2em;
+    border-radius: 4px;
+}
+
+ul, ol {
+    padding-left: 1.5em;
+}
+
+ul li, ol li {
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: var(--color-medium-purple);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-dark-purple);
+    text-decoration: underline;
+}
+
+button, .button {
+    background-color: var(--color-medium-purple);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover, .button:hover {
+    background-color: var(--color-dark-purple);
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid var(--color-light-purple);
+    font-family: 'Fira Sans', sans-serif;
+    color: var(--color-dark-purple);
+    background-color: var(--color-white);
+    margin-bottom: 1em;
+    border-radius: 4px;
+}
+
+input[type="submit"], button[type="submit"] {
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    padding: 0.5em 1em;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+    background-color: var(--color-medium-purple);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+    border: 1px solid var(--color-light-purple);
+}
+
+th {
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    padding: 0.5em;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+}
+
+td {
+    padding: 0.5em;
+    border: 1px solid var(--color-light-purple);
+    color: var(--color-dark-purple);
+}
+
+caption {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: var(--color-medium-purple);
+    margin-bottom: 0.5em;
+}
+
+blockquote {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: var(--color-pale-pink);
+    border-left: 4px solid var(--color-medium-purple);
+    padding: 1em;
+    margin: 1em 0;
+    font-style: italic;
+    color: var(--color-dark-purple);
+}
+
+footer {
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    padding: 1em;
+    text-align: center;
+}
+
+footer p {
+    color: var(--color-light-purple);
+    margin: 0.5em 0;
+}
+
+footer a {
+    color: var(--color-light-purple);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: var(--color-white);
+}

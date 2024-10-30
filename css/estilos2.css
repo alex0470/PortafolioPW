@@ -1,0 +1,107 @@
+*/* {
+    color: darkmagenta;
+}*/
+h1 {
+    color: #0000ff;
+}
+.verde{
+    background-color: #00ff22;
+    color: #000;
+}
+h6.verde{
+    background-color: #33ff99;
+}
+#sections{
+    background-color: hsl(20, 10%, 10%);
+    color: hsl(24, 24%, 96%);
+}
+[type="text"]{
+    border: 2px solid #8000ff;
+}
+input[type] {
+    background-color: rgb(255,236,4);
+}
+input[type="text"]:focus{
+    background-color: #ff80c0;
+}
+p::first-line{
+    font-family: monospace;
+}
+
+div[class~="azul"]{
+    color: #0000ff !important;
+}
+html[lang|="es"] {
+   font-family: "Arial", sans-serif;
+}
+a[ href^="https://"]{
+    color: #f2533f;
+}
+img[src$=".png"]{
+    border: 3px dashed red;
+}
+[title*="plan"]{
+    color:green;
+}   
+
+a:hover {
+    color: #ff80f0;
+    rotate: 10deg;
+}
+
+button:active{
+    background-color: #80ffff;
+}
+input:focus{
+    background-color: orange;
+}
+input:checked{
+    background-color: #ff80f0;
+}
+input:disabled{
+    background-color: grey;
+    color: white;
+}
+#parrafos p:first-child{
+    background-color: #ff80c0;
+}
+#parrafos p:nth-child(even),
+#parrafos h2:nth-of-type(even){
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: #95f677;
+}
+#parrafos p:last-child{
+    background-color: #80fff4;
+}
+
+#parrafos p:nth-child(even)::first-letter{
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+blockquote::before{
+    content: "cita";
+    font-weight: bold;
+}
+blockquote::after{
+    content: "😈";
+    border: 2px solid salmon;
+}
+ul li::marker{
+    content: "🐒";
+}
+ul li ul li::marker{
+    content: "🙊";
+}
+ul li ul li ul li::marker{
+    content: "🙈";
+}
+ol li::marker{
+    content: "🐼";
+}
+ol li ol li::marker{
+    content: "🧑‍💻";
+}
+ol li ol li ol li::marker{
+    content: "👽";
+}
