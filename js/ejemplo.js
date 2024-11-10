@@ -1,6 +1,6 @@
 console.log("Hola mundo desde un archivo javascript");
 
-let objeto = {name: "Silvestre", age :19};
+let objeto = {name: "Silvestre", age :20};
 let numeros = [1,2,3,4,5,6];
 
 let fecha = new Date();
