@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <script src="js/pokeapi.js" defer></script>
+    <link rel="stylesheet" href="css/pokeapi.css">
+</head>
+<body>
+    <a class="principal" href="index.html">Principal</a><br/>
+    <a class="siguiente" href="api.html">Siguiente➡️</a><br/>
+
+    <main class="container">
+
+        <div class="left-panel">
+            <form id="search-form">
+                <label for="pokemon-name-input">Busca un Pokémon:</label>
+                <input type="text" id="pokemon-name-input" placeholder="Ejemplo: pikachu" required>
+                <button type="submit">Buscar</button>
+            </form>
+            <div class="screen">
+                <img id="pokemon-image" src="" alt="Imagen del Pokémon">
+            </div>
+            <div class="buttons">
+                <div class="button red"></div>
+                <div class="button green"></div>
+                <div class="button yellow"></div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="info-screen">
+                <dl>
+                    <dt>Nombre:</dt>
+                    <dd id="pokemon-name">-</dd>
+                    <dt>Tipos:</dt>
+                    <dd id="pokemon-types">-</dd>
+                </dl>
+            </div>
+            <div class="controls">
+                <div class="control-button">⬅️</div>
+                <div class="control-button">➡️</div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
