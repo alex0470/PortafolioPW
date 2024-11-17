@@ -7,12 +7,12 @@ const weightTxt = document.getElementById("pokemon-weight");
 const abilitiesList = document.getElementById("pokemon-abilities");
 const statsList = document.getElementById("pokemon-stats");
 const audio = document.getElementById("pokemon-sound");
-const pokemonIdTxt = document.getElementById("pokemon-id"); // Nuevo elemento para mostrar el ID
-const errorMessage = document.getElementById("error-message"); // Nuevo elemento para el mensaje de error
+const pokemonIdTxt = document.getElementById("pokemon-id");
+const errorMessage = document.getElementById("error-message");
 
 function clearResults() {
     nombreTxt.innerText = "";
-    pokemonIdTxt.innerText = ""; // Limpiar el ID
+    pokemonIdTxt.innerText = "";
     typesList.innerHTML = "";
     image.setAttribute("src", "");
     heightTxt.innerText = "-";
@@ -25,12 +25,11 @@ function clearResults() {
 }
 
 function showError(message) {
-    // Limpiar resultados
     clearResults();
 
-    // Mostrar mensaje de error
+
     errorMessage.innerText = message;
-    errorMessage.style.display = "block"; // Asegurarnos de que el mensaje sea visible
+    errorMessage.style.display = "block";
 }
 
 form.addEventListener("submit", (event) => {
@@ -44,11 +43,10 @@ form.addEventListener("submit", (event) => {
         })
         .then((pokemon) => {
             clearResults();
-            errorMessage.style.display = "none"; // Ocultar mensaje de error si el Pokémon es encontrado
+            errorMessage.style.display = "none";
 
-            // Mostrar nombre y ID
             nombreTxt.innerText = pokemon.name;
-            pokemonIdTxt.innerText = `ID: ${pokemon.id}`; // Mostrar el ID
+            pokemonIdTxt.innerText = `${pokemon.id}`;
 
             const listaTipos = document.createElement("ul");
             pokemon.types.forEach((tipo) => {
@@ -63,8 +61,8 @@ form.addEventListener("submit", (event) => {
             image.style.width = "300px";
             image.style.height = "300px";
 
-            heightTxt.innerText = `${pokemon.height / 10} m`; // Convertido a metros
-            weightTxt.innerText = `${pokemon.weight / 10} kg`; // Convertido a kilogramos
+            heightTxt.innerText = `${pokemon.height / 10} m`;
+            weightTxt.innerText = `${pokemon.weight / 10} kg`;
 
             const abilities = document.createElement("ul");
             pokemon.abilities.forEach((ability) => {
@@ -82,29 +80,23 @@ form.addEventListener("submit", (event) => {
             });
             statsList.appendChild(stats);
 
-            // Obtener el ID del Pokémon para luego buscar el sonido
-            const pokemonId = pokemon.id;
+            const soundUrl = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg`;
 
-            // Construir la URL del archivo de sonido con el ID del Pokémon
-            const soundUrl = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonId}.ogg`;
-
-            // Verificar que la URL del sonido está disponible
             fetch(soundUrl)
                 .then((response) => {
                     if (response.ok) {
-                        // Si la URL es válida, cargamos el archivo de audio
                         console.log("Audio encontrado para Pokémon:", pokemon.name);
-                        audio.setAttribute("src", soundUrl); // Corregir aquí el uso de `audio`
+                        audio.setAttribute("src", soundUrl);
                         audio.classList.add("active");
-                        audio.style.display = "block"; // Asegurarse de que el audio sea visible
-                        audio.controls = true; // Añadir controles de audio para que el usuario pueda reproducirlo
+                        audio.style.display = "block";
+                        audio.controls = true;
                     } else {
                         throw new Error("Sonido no encontrado para este Pokémon");
                     }
                 })
                 .catch((error) => {
                     console.warn(error.message);
-                    audio.style.display = "none"; // Si no se carga el sonido, lo ocultamos
+                    audio.style.display = "none";
                 });
         })
         .catch((error) => {

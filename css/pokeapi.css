@@ -186,5 +186,5 @@ body {
 }
 
 #pokemon-sound {
-    display: none;  /* Esto hará que el audio nunca sea visible */
+    display: none;
 }
