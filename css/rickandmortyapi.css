@@ -9,6 +9,23 @@ body {
     padding: 0;
 }
 
+.principal{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.principal:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
 .container {
     text-align: center;
     margin-top: 50px;
