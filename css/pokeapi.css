@@ -53,7 +53,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 800px;
-    height: 500px;
+    height: 750px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -183,4 +183,8 @@ body {
 
 .control-button:hover {
     background: #ffaa00;
+}
+
+#pokemon-sound {
+    display: none;  /* Esto hará que el audio nunca sea visible */
 }
