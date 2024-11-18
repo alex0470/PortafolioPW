@@ -1,106 +1,104 @@
-const form = document.getElementById("search-form");
-const nombreTxt = document.getElementById("pokemon-name");
-const typesList = document.getElementById("pokemon-types");
-const image = document.getElementById("pokemon-image");
-const heightTxt = document.getElementById("pokemon-height");
-const weightTxt = document.getElementById("pokemon-weight");
-const abilitiesList = document.getElementById("pokemon-abilities");
-const statsList = document.getElementById("pokemon-stats");
-const audio = document.getElementById("pokemon-sound");
-const pokemonIdTxt = document.getElementById("pokemon-id");
-const errorMessage = document.getElementById("error-message");
+const formulario = document.getElementById("formulario-busqueda");
+const nombrePokemon = document.getElementById("nombre-pokemon");
+const listaTipos = document.getElementById("tipos-pokemon");
+const imagen = document.getElementById("imagen-pokemon");
+const alturaPokemon = document.getElementById("altura-pokemon");
+const pesoPokemon = document.getElementById("peso-pokemon");
+const listaHabilidades = document.getElementById("habilidades-pokemon");
+const listaEstadisticas = document.getElementById("estadisticas-pokemon");
+const sonido = document.getElementById("sonido-pokemon");
+const idPokemon = document.getElementById("id-pokemon");
+const mensajeError = document.getElementById("mensaje-error");
 
-function clearResults() {
-    nombreTxt.innerText = "";
-    pokemonIdTxt.innerText = "";
-    typesList.innerHTML = "";
-    image.setAttribute("src", "");
-    heightTxt.innerText = "-";
-    weightTxt.innerText = "-";
-    abilitiesList.innerHTML = "";
-    statsList.innerHTML = "";
-    audio.style.display = "none";
-    audio.classList.remove("active");
-    audio.setAttribute("src", "");
+function limpiarResultados() {
+    nombrePokemon.innerText = "";
+    idPokemon.innerText = "";
+    listaTipos.innerHTML = "";
+    imagen.setAttribute("src", "");
+    alturaPokemon.innerText = "-";
+    pesoPokemon.innerText = "-";
+    listaHabilidades.innerHTML = "";
+    listaEstadisticas.innerHTML = "";
+    sonido.style.display = "none";
+    sonido.classList.remove("activo");
+    sonido.setAttribute("src", "");
 }
 
-function showError(message) {
-    clearResults();
-
-
-    errorMessage.innerText = message;
-    errorMessage.style.display = "block";
+function mostrarError(mensaje) {
+    limpiarResultados();
+    mensajeError.innerText = mensaje;
+    mensajeError.style.display = "block";
 }
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const pokemonName = document.getElementById("pokemon-name-input").value.toLowerCase();
+formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const nombre = document.getElementById("input-nombre-pokemon").value.toLowerCase();
     
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-        .then((response) => {
-            if (!response.ok) throw new Error(`Pokémon ${pokemonName} no encontrado`);
-            return response.json();
+    fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`)
+        .then((respuesta) => {
+            if (!respuesta.ok) throw new Error(`Pokémon ${nombre} no encontrado`);
+            return respuesta.json();
         })
         .then((pokemon) => {
-            clearResults();
-            errorMessage.style.display = "none";
+            limpiarResultados();
+            mensajeError.style.display = "none";
 
-            nombreTxt.innerText = pokemon.name;
-            pokemonIdTxt.innerText = `${pokemon.id}`;
+            nombrePokemon.innerText = pokemon.name;
+            idPokemon.innerText = `${pokemon.id}`;
 
-            const listaTipos = document.createElement("ul");
+            const ulTipos = document.createElement("ul");
             pokemon.types.forEach((tipo) => {
                 const item = document.createElement("li");
                 item.innerText = tipo.type.name;
-                item.classList.add(`type-${tipo.type.name}`);
-                listaTipos.appendChild(item);
+                item.classList.add(`tipo-${tipo.type.name}`);
+                ulTipos.appendChild(item);
             });
-            typesList.appendChild(listaTipos);
+            listaTipos.appendChild(ulTipos);
 
-            image.setAttribute("src", pokemon.sprites.front_shiny);
-            image.style.width = "300px";
-            image.style.height = "300px";
+            imagen.setAttribute("src", pokemon.sprites.front_shiny);
+            imagen.style.width = "300px";
+            imagen.style.height = "300px";
 
-            heightTxt.innerText = `${pokemon.height / 10} m`;
-            weightTxt.innerText = `${pokemon.weight / 10} kg`;
+            alturaPokemon.innerText = `${pokemon.height / 10} m`;
+            pesoPokemon.innerText = `${pokemon.weight / 10} kg`;
 
-            const abilities = document.createElement("ul");
-            pokemon.abilities.forEach((ability) => {
+            const ulHabilidades = document.createElement("ul");
+            pokemon.abilities.forEach((habilidad) => {
                 const item = document.createElement("li");
-                item.innerText = ability.ability.name;
-                abilities.appendChild(item);
+                item.innerText = habilidad.ability.name;
+                ulHabilidades.appendChild(item);
             });
-            abilitiesList.appendChild(abilities);
+            listaHabilidades.appendChild(ulHabilidades);
 
-            const stats = document.createElement("ul");
-            pokemon.stats.forEach((stat) => {
+            const ulEstadisticas = document.createElement("ul");
+            pokemon.stats.forEach((estadistica) => {
                 const item = document.createElement("li");
-                item.innerText = `${stat.stat.name}: ${stat.base_stat}`;
-                stats.appendChild(item);
+                item.innerText = `${estadistica.stat.name}: ${estadistica.base_stat}`;
+                ulEstadisticas.appendChild(item);
             });
-            statsList.appendChild(stats);
+            listaEstadisticas.appendChild(ulEstadisticas);
 
-            const soundUrl = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg`;
+            const urlSonido = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg`;
 
-            fetch(soundUrl)
-                .then((response) => {
-                    if (response.ok) {
+            fetch(urlSonido)
+                .then((respuesta) => {
+                    if (respuesta.ok) {
                         console.log("Audio encontrado para Pokémon:", pokemon.name);
-                        audio.setAttribute("src", soundUrl);
-                        audio.classList.add("active");
-                        audio.style.display = "block";
-                        audio.controls = true;
+                        sonido.setAttribute("src", urlSonido);
+                        sonido.classList.add("activo");
+                        sonido.style.display = "block";
+                        sonido.controls = true;
                     } else {
                         throw new Error("Sonido no encontrado para este Pokémon");
                     }
                 })
                 .catch((error) => {
                     console.warn(error.message);
-                    audio.style.display = "none";
+                    sonido.style.display = "none";
                 });
         })
         .catch((error) => {
-            showError(error.message);
+            mostrarError(error.message);
             console.error(error);
         });
 });

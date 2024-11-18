@@ -47,7 +47,7 @@ body {
     background: rgba(255, 255, 255, 1);
 }
 
-.container {
+.contenedor {
     background: linear-gradient(to bottom, #ff1c1c, #c40000);
     border-radius: 20px;
     display: flex;
@@ -57,7 +57,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.left-panel {
+.panel-izquierdo {
     flex: 1;
     padding: 20px;
     border-right: 4px solid #aa0000;
@@ -66,31 +66,31 @@ body {
     justify-content: space-between;
 }
 
-.left-panel form {
+.formulario-busqueda {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.left-panel input, .left-panel button {
+.panel-izquierdo input, .panel-izquierdo button {
     padding: 10px;
     border: none;
     border-radius: 8px;
     font-size: 16px;
 }
 
-.left-panel button {
+.panel-izquierdo button {
     background-color: #0078ff;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.left-panel button:hover {
+.panel-izquierdo button:hover {
     background-color: #0056b3;
 }
 
-.screen {
+.pantalla {
     background: #f5f5f5;
     border: 4px solid #333;
     border-radius: 10px;
@@ -101,19 +101,19 @@ body {
     box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.screen img {
+.pantalla img {
     max-height: 100%;
     max-width: 100%;
     border-radius: 8px;
 }
 
-.buttons {
+.botones {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.button {
+.boton {
     width: 40px;
     height: 40px;
     background: radial-gradient(circle, #0078ff, #0056b3);
@@ -121,19 +121,19 @@ body {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-.button.red {
+.boton.rojo {
     background: radial-gradient(circle, #ff5858, #c40000);
 }
 
-.button.green {
+.boton.verde {
     background: radial-gradient(circle, #33cc33, #006600);
 }
 
-.button.yellow {
+.boton.amarillo {
     background: radial-gradient(circle, #ffcc00, #aa8800);
 }
 
-.right-panel {
+.panel-derecho {
     flex: 1;
     padding: 20px;
     display: flex;
@@ -141,7 +141,7 @@ body {
     justify-content: space-between;
 }
 
-.info-screen {
+.pantalla-informacion {
     background: #99ff99;
     border: 4px solid #33cc33;
     border-radius: 10px;
@@ -149,28 +149,28 @@ body {
     box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.info-screen dl {
+.pantalla-informacion dl {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.info-screen dt {
+.pantalla-informacion dt {
     font-weight: bold;
     color: #006600;
 }
 
-.info-screen dd {
+.pantalla-informacion dd {
     margin-left: 20px;
     color: #003300;
 }
 
-.controls {
+.controles {
     display: flex;
     justify-content: space-around;
 }
 
-.control-button {
+.boton-control {
     width: 50px;
     height: 30px;
     background: #ffcc00;

@@ -1,75 +1,75 @@
-let currentPage = 1;
-let totalPages = 42;
-const charactersList = document.getElementById("characters-list");
-const prevButton = document.getElementById("prev-page");
-const nextButton = document.getElementById("next-page");
+let paginaActual = 1;
+let totalPaginas = 42;
+const listaPersonajes = document.getElementById("lista-personajes");
+const botonAnterior = document.getElementById("pagina-anterior");
+const botonSiguiente = document.getElementById("pagina-siguiente");
 
-const modal = document.getElementById("character-modal");
-const closeModal = document.getElementById("close-modal");
-const characterName = document.getElementById("character-name");
-const characterImage = document.getElementById("character-image");
-const characterStatus = document.getElementById("character-status");
-const characterSpecies = document.getElementById("character-species");
-const characterOrigin = document.getElementById("character-origin");
-const characterLocation = document.getElementById("character-location");
+const modal = document.getElementById("modal-personaje");
+const cerrarModal = document.getElementById("cerrar-modal");
+const nombrePersonaje = document.getElementById("nombre-personaje");
+const imagenPersonaje = document.getElementById("imagen-personaje");
+const estadoPersonaje = document.getElementById("estado-personaje");
+const especiePersonaje = document.getElementById("especie-personaje");
+const origenPersonaje = document.getElementById("origen-personaje");
+const ubicacionPersonaje = document.getElementById("ubicacion-personaje");
 
-function fetchCharacters(page) {
-    fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+function obtenerPersonajes(pagina) {
+    fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
         .then(response => response.json())
         .then(data => {
-            totalPages = data.info.pages;
-            displayCharacters(data.results);
-            updatePaginationButtons();
+            totalPaginas = data.info.pages;
+            mostrarPersonajes(data.results);
+            actualizarBotonesPaginacion();
         })
         .catch(error => console.error("Error al cargar los personajes:", error));
 }
 
-function displayCharacters(characters) {
-    charactersList.innerHTML = '';
+function mostrarPersonajes(personajes) {
+    listaPersonajes.innerHTML = '';
 
-    characters.forEach(character => {
-        const characterItem = document.createElement("div");
-        characterItem.classList.add("character-item");
-        characterItem.innerHTML = `
-            <img src="${character.image}" alt="${character.name}">
-            <h3>${character.name}</h3>
+    personajes.forEach(personaje => {
+        const itemPersonaje = document.createElement("div");
+        itemPersonaje.classList.add("item-personaje");
+        itemPersonaje.innerHTML = `
+            <img src="${personaje.image}" alt="${personaje.name}">
+            <h3>${personaje.name}</h3>
         `;
-        characterItem.addEventListener("click", () => openModal(character));
-        charactersList.appendChild(characterItem);
+        itemPersonaje.addEventListener("click", () => abrirModal(personaje));
+        listaPersonajes.appendChild(itemPersonaje);
     });
 }
 
-function openModal(character) {
-    characterName.innerText = character.name;
-    characterImage.src = character.image;
-    characterStatus.innerText = `Estado: ${character.status}`;
-    characterSpecies.innerText = `Especie: ${character.species}`;
-    characterOrigin.innerText = `Origen: ${character.origin.name}`;
-    characterLocation.innerText = `Ubicación: ${character.location.name}`;
+function abrirModal(personaje) {
+    nombrePersonaje.innerText = personaje.name;
+    imagenPersonaje.src = personaje.image;
+    estadoPersonaje.innerText = `Estado: ${personaje.status}`;
+    especiePersonaje.innerText = `Especie: ${personaje.species}`;
+    origenPersonaje.innerText = `Origen: ${personaje.origin.name}`;
+    ubicacionPersonaje.innerText = `Ubicación: ${personaje.location.name}`;
     modal.style.display = "block";
 }
 
-closeModal.addEventListener("click", () => {
+cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-function updatePaginationButtons() {
-    prevButton.disabled = currentPage === 1;
-    nextButton.disabled = currentPage === totalPages;
+function actualizarBotonesPaginacion() {
+    botonAnterior.disabled = paginaActual === 1;
+    botonSiguiente.disabled = paginaActual === totalPaginas;
 }
 
-prevButton.addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        fetchCharacters(currentPage);
+botonAnterior.addEventListener("click", () => {
+    if (paginaActual > 1) {
+        paginaActual--;
+        obtenerPersonajes(paginaActual);
     }
 });
 
-nextButton.addEventListener("click", () => {
-    if (currentPage < totalPages) {
-        currentPage++;
-        fetchCharacters(currentPage);
+botonSiguiente.addEventListener("click", () => {
+    if (paginaActual < totalPaginas) {
+        paginaActual++;
+        obtenerPersonajes(paginaActual);
     }
 });
 
-window.onload = () => fetchCharacters(currentPage);
+window.onload = () => obtenerPersonajes(paginaActual);
